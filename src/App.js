@@ -1,6 +1,10 @@
+import Layout from "./components/Layout";
+import "./styles/index.css";
+
 function App() {
   return (
-    <div className="App">
+    <div className="layout">
+      <Layout />
     </div>
   );
 }
