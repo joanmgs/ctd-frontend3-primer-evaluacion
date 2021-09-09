@@ -3,6 +3,7 @@ import React from "react";
 import "../styles/index.css";
 import data from "./data.json";
 import Options from "./Options";
+import PreviousStates from "./PreviousStates";
 
 export default class Layout extends React.Component {
   constructor(props) {
@@ -12,6 +13,7 @@ export default class Layout extends React.Component {
       descripcion: "",
       opcionA: "",
       opcionB: "",
+      historial: [],
     };
   };
 
@@ -24,11 +26,13 @@ export default class Layout extends React.Component {
     });
   };
 
-  updateHistory = (event) => {
+  updateOptions = (event) => {
     if (parseInt(this.state.id) < 5) {
       console.log(`${parseInt(this.state.id)+1}${event.target.id}`);
       const sig = data.find( dato => dato["id"] === `${parseInt(this.state.id)+1}${event.target.id}`);
   
+      this.state.historial.push(`${parseInt(this.state.id)+1}${event.target.id}`);
+
       this.setState({
         id: sig.id,
         descripcion: sig.historia,
@@ -45,7 +49,8 @@ export default class Layout extends React.Component {
       <>
         <h1 className="historia">{this.state.descripcion}</h1>
         <div className="opciones">
-          <Options opcionA={this.state.opcionA} opcionB={this.state.opcionB} updating={this.updateHistory}/>
+          <Options opcionA={this.state.opcionA} opcionB={this.state.opcionB} updating={this.updateOptions}/>
+          <PreviousStates historial={this.state.historial}/>
         </div>
       </>
     );
