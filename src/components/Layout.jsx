@@ -50,6 +50,8 @@ export default class Layout extends React.Component {
         <h1 className="historia">{this.state.descripcion}</h1>
         <div className="opciones">
           <Options opcionA={this.state.opcionA} opcionB={this.state.opcionB} updating={this.updateOptions}/>
+        </div>
+        <div className="recordatorio">
           <PreviousStates historial={this.state.historial}/>
         </div>
       </>
