@@ -5,7 +5,7 @@
 }
 .layout {
   height: 100vh;
-  max-width: 500px;
+  max-width: 600px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -35,7 +35,6 @@
 .recordatorio {
   color: white;
   margin-top: 60px;
-  border: 1px solid whitesmoke;
 }
 
 .botones {

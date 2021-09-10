@@ -30,14 +30,15 @@ export default class Layout extends React.Component {
     if (parseInt(this.state.id) < 5) {
       console.log(`${parseInt(this.state.id)+1}${event.target.id}`);
       const sig = data.find( dato => dato["id"] === `${parseInt(this.state.id)+1}${event.target.id}`);
-  
-      this.state.historial.push(`${event.target.id}`);
+
+      // this.state.historial.push(`${event.target.id}`)
 
       this.setState({
         id: sig.id,
         descripcion: sig.historia,
         opcionA: sig.opciones.a,
         opcionB: sig.opciones.b,
+        historial: [...this.state.historial, `${event.target.id}`],
       });
     } else {
       alert("fin de la historia");
