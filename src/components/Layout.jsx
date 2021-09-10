@@ -28,16 +28,13 @@ export default class Layout extends React.Component {
 
   updateOptions = (event) => {
     if (parseInt(this.state.id) < 5) {
-      console.log(`${parseInt(this.state.id)+1}${event.target.id}`);
-      const sig = data.find( dato => dato["id"] === `${parseInt(this.state.id)+1}${event.target.id}`);
-
-      // this.state.historial.push(`${event.target.id}`)
+      const opcionSeleccionada = data.find( dato => dato["id"] === `${parseInt(this.state.id)+1}${event.target.id}`);
 
       this.setState({
-        id: sig.id,
-        descripcion: sig.historia,
-        opcionA: sig.opciones.a,
-        opcionB: sig.opciones.b,
+        id: opcionSeleccionada.id,
+        descripcion: opcionSeleccionada.historia,
+        opcionA: opcionSeleccionada.opciones.a,
+        opcionB: opcionSeleccionada.opciones.b,
         historial: [...this.state.historial, `${event.target.id}`],
       });
     } else {
